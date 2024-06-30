@@ -1,0 +1,23 @@
+@use './colors' as *;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: 1em 0.5em;
+    .js-open-menu {
+        cursor: pointer;
+    }
+    .right-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75em;
+        p {
+            width: 100%;
+            font-size: 0.85rem;
+            color: $text-opacity;
+        }
+    }
+}

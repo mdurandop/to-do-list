@@ -1,0 +1,30 @@
+@use './colors' as *;
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&display=swap');
+
+body {
+    display: grid;
+    place-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo 2', system-ui;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.container {
+    width: 350px;
+    margin: auto 0;
+    border: 1px solid rgba($color: #fff, $alpha: 0.3);
+    overflow-y: scroll;
+}

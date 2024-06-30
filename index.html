@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="dist/index.css">
+    <link rel="shortcut icon" href="icons/logo.svg" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <!--Barra lateral de navegación-->
+        <aside>
+            <div class="nav-bar">
+                <header>
+                    <div class="menu-heading">
+                        <img src="icons/menu.svg" alt="Hamburguer menu" class="js-menu">
+                        <p class="heading">Projects</p>
+                    </div>
+                    <img src="icons/add.svg" alt="Add button">
+                </header>
+                <article class="tasks-section">
+                    <div class="task-header">
+                        <p>Tasks</p>  
+                        <img src="icons/arrow active.svg" class="active-arrow">
+                    </div>
+                    <div class="list-tasks">
+                        <div class="line-y"></div>
+                        <div class="list">
+                            <div class="task-type">
+                                <div class="line-x"></div>
+                                <p>All tasks (0)</p>
+                            </div>
+                            <div class="task-type">
+                                <div class="line-x"></div>
+                                <p>To do (0)</p>
+                            </div>
+                            <div class="task-type">
+                                <div class="line-x"></div>
+                                <p>In progress (0)</p>
+                            </div>
+                            <div class="task-type">
+                                <div class="line-x"></div> 
+                                <p>Done (0)</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </aside>
+
+            <header>
+                <div class="js-open-menu">
+                    <img src="icons/menu.svg" alt="">
+                </div>
+                <div class="right-header">
+                    <img src="icons/search.svg" alt="">
+                    <img src="icons/calendar.svg" alt="">
+                    <p class="js-now">18 May 2022</p>
+                </div>
+            </header>
+        </div>
+
+    </div>
+    <script type="module" src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</body> 
+</html>
