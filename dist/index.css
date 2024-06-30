@@ -22,6 +22,7 @@ body {
 
 .container {
   width: 350px;
+  height: 100dvh;
   margin: auto 0;
   border: 1px solid rgba(255, 255, 255, 0.3);
   overflow-y: scroll;
@@ -130,4 +131,67 @@ header .right-header p {
   width: 100%;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.tasks {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #24262c;
+  border-radius: 10px;
+  gap: 1em;
+  padding: 1em 0;
+}
+.tasks .type-task {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1em;
+  border-radius: 10px;
+}
+.tasks .type-task .add-task {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.tasks .type-task .add-task img {
+  max-width: 100%;
+}
+.tasks .task-card {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  background-color: #292B31;
+  border-radius: 10px;
+  padding: 1em 0.2em;
+  gap: 2em;
+}
+.tasks .task-card .head {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1em;
+}
+.tasks .task-card .head .task-name-description .heading {
+  font-size: 1.1rem;
+  margin: 0.4em 0;
+}
+.tasks .task-card .head img {
+  width: 1.5em;
+  max-width: 100%;
+}
+.tasks .task-card .date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0;
+  padding: 0.5em;
+  border-radius: 9999px;
+  background-color: #36373d;
+  margin: 0 1em;
 }
