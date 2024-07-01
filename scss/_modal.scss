@@ -18,11 +18,12 @@
         justify-content: center;
         align-items: center;
         width: 80%;
-        height: 50%;
+        height: max-content;
+        
         min-height: fit-content;
         gap: 1em;
         background-color: $primary-color;
-        padding: 1em 0.6em;
+        padding: 3em 0.6em;
         border-radius: 10px;
         input {
             border: none;
@@ -30,7 +31,7 @@
             background-color: $background-color;
             width: 90%;
             height: 10%;
-            padding: 0.4em;
+            padding: 1em 0.4em;
             color: $text-color;
             
             &:focus {

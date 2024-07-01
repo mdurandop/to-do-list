@@ -25,28 +25,48 @@ addTaskButtons.forEach(button => {
     })
 })
 
+const taskList = JSON.parse(localStorage.getItem('taskList')) || []
+updateTasks()
+
 const saveTaskButton = document.querySelector('.js-add-new-task');
+
+
+function updateTasks() {
+    const tasksContainer = document.querySelector('.tasks-list');
+    tasksContainer.innerHTML = ''
+
+    taskList.forEach(task => {
+        const newTaskCard = document.createElement('div')
+        newTaskCard.classList.add('task-card')
+    
+        newTaskCard.innerHTML = 
+        `
+            <div class="head">
+                <div class="task-name-description">
+                    <p class="heading">${task.name}</p>
+                    <p class="description">${task.description}</p>
+                </div>
+                <img src="icons/more.svg" alt="">
+            </div>
+            <p class="date">${task.AddedAt}</p>
+        `
+        tasksContainer.appendChild(newTaskCard);
+    })
+}
+
 
 saveTaskButton.addEventListener('click', () => {
     let taskName = document.querySelector('.task-name').value || 'Task name';
     let taskDescription = document.querySelector('.task-description').value;
+    let taskAddedAt = now;
+    taskList.push({name: taskName, description: taskDescription, AddedAt: taskAddedAt})
 
-    const tasksContainer = document.querySelector('.tasks');
-    const newTaskCard = document.createElement('div')
-    newTaskCard.classList.add('task-card')
+    updateTasks()
 
-    newTaskCard.innerHTML = 
-    `
-        <div class="head">
-            <div class="task-name-description">
-                <p class="heading">${taskName}</p>
-                <p>${taskDescription}</p>
-            </div>
-            <img src="icons/more.svg" alt="">
-        </div>
-        <p class="date">${now}</p>
-    `
+    localStorage.setItem('taskList', JSON.stringify(taskList))
+    
+    console.log(taskList)
 
-    tasksContainer.appendChild(newTaskCard);
     taskModalElement.style.display = 'none'
+
 });
