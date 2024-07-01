@@ -150,6 +150,7 @@ header .right-header p {
   justify-content: space-between;
   align-items: center;
   margin: 0 1em;
+  margin-top: 1em;
   border-radius: 10px;
 }
 .tasks .type-task .add-task {
@@ -169,6 +170,7 @@ header .right-header p {
   justify-content: center;
   gap: 1em;
   width: 100%;
+  z-index: 0;
 }
 .tasks .tasks-list .task-card {
   width: 90%;
@@ -178,6 +180,7 @@ header .right-header p {
   border-radius: 10px;
   padding: 1em 0.2em;
   gap: 2em;
+  transition: 0.5s all;
 }
 .tasks .tasks-list .task-card .head {
   display: flex;
@@ -191,11 +194,47 @@ header .right-header p {
 .tasks .tasks-list .task-card .head .task-name-description .description {
   color: rgba(255, 255, 255, 0.5);
 }
-.tasks .tasks-list .task-card .head img {
-  width: 1.5em;
+.tasks .tasks-list .task-card .head .more-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 0.5em;
+  width: 30%;
+  transition: 0.5s all;
+}
+.tasks .tasks-list .task-card .head .more-options img {
+  width: 20px;
+  cursor: pointer;
   max-width: 100%;
 }
-.tasks .tasks-list .task-card .date {
+.tasks .tasks-list .task-card .head .more-options .content {
+  display: none;
+  flex-direction: column;
+  right: 0;
+  width: 160px;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 1;
+  background-color: #2a2b2f;
+  border: 1px solid rgba(34, 35, 39, 0.6);
+  border-radius: 4px;
+}
+.tasks .tasks-list .task-card .head .more-options p {
+  color: #fff;
+}
+.tasks .tasks-list .task-card .head .more-options .option {
+  cursor: pointer;
+  padding: 0.3em 0.4em;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.4em;
+  border: 1px solid rgba(34, 35, 39, 0.6);
+  max-width: 100%;
+}
+.tasks .tasks-list .task-card .head .more-options .completed img {
+  width: 19px;
+}
+.tasks .tasks-list .date {
   display: flex;
   align-items: center;
   justify-content: center;
