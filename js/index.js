@@ -155,6 +155,4 @@ inProgressTasksContainer.addEventListener('click', (event) => {
     }
 });
 
-console.log(taskList)
-console.log(taskListInProgress)
 updateTasks();
