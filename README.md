@@ -5,6 +5,10 @@ This project is a task management application designed to help users efficiently
 
 ![Logo](icons/To%20Do%20List%20Logo%20Header.png)
 
+## Demo
+
+[To Do List Live Demo](https://mdurandop.github.io/to-do-list-dashboard/)
+
 ## Features
 
 - **Display Current Date:** The application displays the current date using the dayjs library.
@@ -17,7 +21,8 @@ This project is a task management application designed to help users efficiently
 
 ## Screenshots
 
-![Mobile App Screenshot](icons/screenshot-mobile.png)
+![App Screenshot](icons/screenshot.png)
+
 
 ## Authors
 
