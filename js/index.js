@@ -89,13 +89,19 @@ const updateTasks = () => {
         completedTasksContainer.appendChild(newTaskCard);
     });
 
+    const allTasksCounter = taskList.length + taskListCompleted.length + taskListInProgress.length;
+    document.querySelector('.all-tasks-counter').innerText = `All tasks (${allTasksCounter})`
+
     const counter = document.querySelector('.js-todo-counter')
+    document.querySelector('.js-todo-counter-aside').innerText = `To do (${taskList.length})`
     counter.innerText = `To do (${taskList.length})`
 
     const inProgressCounter = document.querySelector('.in-progress-counter')
+    document.querySelector('.in-progress-counter-aside').innerText = `In progress (${taskListInProgress.length})`
     inProgressCounter.innerText = `In progress (${taskListInProgress.length})`
 
     const completedCounter = document.querySelector('.completed-counter');
+    document.querySelector('.completed-counter-aside').innerText = `In progress (${taskListCompleted.length})`
     completedCounter.innerText = `Completed (${taskListCompleted.length})`;
 };
 
