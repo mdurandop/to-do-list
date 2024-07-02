@@ -33,7 +33,7 @@
             }
         }
     }
-    .tasks-list {
+    .tasks-list, .completed-list, .in-progress-list {
         display: flex;
         flex-direction: column;
         align-items: center;

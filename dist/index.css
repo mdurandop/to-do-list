@@ -166,7 +166,7 @@ header .right-header p {
 .tasks .head-section .add-task img, .completed-section .head-section .add-task img, .in-progress-section .head-section .add-task img {
   max-width: 100%;
 }
-.tasks .tasks-list, .completed-section .tasks-list, .in-progress-section .tasks-list {
+.tasks .tasks-list, .tasks .completed-list, .tasks .in-progress-list, .completed-section .tasks-list, .completed-section .completed-list, .completed-section .in-progress-list, .in-progress-section .tasks-list, .in-progress-section .completed-list, .in-progress-section .in-progress-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,7 +175,7 @@ header .right-header p {
   width: 100%;
   z-index: 0;
 }
-.tasks .tasks-list .task-card, .completed-section .tasks-list .task-card, .in-progress-section .tasks-list .task-card {
+.tasks .tasks-list .task-card, .tasks .completed-list .task-card, .tasks .in-progress-list .task-card, .completed-section .tasks-list .task-card, .completed-section .completed-list .task-card, .completed-section .in-progress-list .task-card, .in-progress-section .tasks-list .task-card, .in-progress-section .completed-list .task-card, .in-progress-section .in-progress-list .task-card {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -185,19 +185,19 @@ header .right-header p {
   gap: 2em;
   transition: 0.5s all;
 }
-.tasks .tasks-list .task-card .head, .completed-section .tasks-list .task-card .head, .in-progress-section .tasks-list .task-card .head {
+.tasks .tasks-list .task-card .head, .tasks .completed-list .task-card .head, .tasks .in-progress-list .task-card .head, .completed-section .tasks-list .task-card .head, .completed-section .completed-list .task-card .head, .completed-section .in-progress-list .task-card .head, .in-progress-section .tasks-list .task-card .head, .in-progress-section .completed-list .task-card .head, .in-progress-section .in-progress-list .task-card .head {
   display: flex;
   justify-content: space-between;
   margin: 0 1em;
 }
-.tasks .tasks-list .task-card .head .task-name-description .heading, .completed-section .tasks-list .task-card .head .task-name-description .heading, .in-progress-section .tasks-list .task-card .head .task-name-description .heading {
+.tasks .tasks-list .task-card .head .task-name-description .heading, .tasks .completed-list .task-card .head .task-name-description .heading, .tasks .in-progress-list .task-card .head .task-name-description .heading, .completed-section .tasks-list .task-card .head .task-name-description .heading, .completed-section .completed-list .task-card .head .task-name-description .heading, .completed-section .in-progress-list .task-card .head .task-name-description .heading, .in-progress-section .tasks-list .task-card .head .task-name-description .heading, .in-progress-section .completed-list .task-card .head .task-name-description .heading, .in-progress-section .in-progress-list .task-card .head .task-name-description .heading {
   font-size: 1.1rem;
   margin: 0.4em 0;
 }
-.tasks .tasks-list .task-card .head .task-name-description .description, .completed-section .tasks-list .task-card .head .task-name-description .description, .in-progress-section .tasks-list .task-card .head .task-name-description .description {
+.tasks .tasks-list .task-card .head .task-name-description .description, .tasks .completed-list .task-card .head .task-name-description .description, .tasks .in-progress-list .task-card .head .task-name-description .description, .completed-section .tasks-list .task-card .head .task-name-description .description, .completed-section .completed-list .task-card .head .task-name-description .description, .completed-section .in-progress-list .task-card .head .task-name-description .description, .in-progress-section .tasks-list .task-card .head .task-name-description .description, .in-progress-section .completed-list .task-card .head .task-name-description .description, .in-progress-section .in-progress-list .task-card .head .task-name-description .description {
   color: rgba(255, 255, 255, 0.5);
 }
-.tasks .tasks-list .task-card .head .more-options, .completed-section .tasks-list .task-card .head .more-options, .in-progress-section .tasks-list .task-card .head .more-options {
+.tasks .tasks-list .task-card .head .more-options, .tasks .completed-list .task-card .head .more-options, .tasks .in-progress-list .task-card .head .more-options, .completed-section .tasks-list .task-card .head .more-options, .completed-section .completed-list .task-card .head .more-options, .completed-section .in-progress-list .task-card .head .more-options, .in-progress-section .tasks-list .task-card .head .more-options, .in-progress-section .completed-list .task-card .head .more-options, .in-progress-section .in-progress-list .task-card .head .more-options {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -205,13 +205,13 @@ header .right-header p {
   width: 30%;
   transition: 0.5s all;
 }
-.tasks .tasks-list .task-card .head .more-options img, .completed-section .tasks-list .task-card .head .more-options img, .in-progress-section .tasks-list .task-card .head .more-options img {
+.tasks .tasks-list .task-card .head .more-options img, .tasks .completed-list .task-card .head .more-options img, .tasks .in-progress-list .task-card .head .more-options img, .completed-section .tasks-list .task-card .head .more-options img, .completed-section .completed-list .task-card .head .more-options img, .completed-section .in-progress-list .task-card .head .more-options img, .in-progress-section .tasks-list .task-card .head .more-options img, .in-progress-section .completed-list .task-card .head .more-options img, .in-progress-section .in-progress-list .task-card .head .more-options img {
   z-index: 2;
   width: 20px;
   cursor: pointer;
   max-width: 100%;
 }
-.tasks .tasks-list .task-card .head .more-options .content, .completed-section .tasks-list .task-card .head .more-options .content, .in-progress-section .tasks-list .task-card .head .more-options .content {
+.tasks .tasks-list .task-card .head .more-options .content, .tasks .completed-list .task-card .head .more-options .content, .tasks .in-progress-list .task-card .head .more-options .content, .completed-section .tasks-list .task-card .head .more-options .content, .completed-section .completed-list .task-card .head .more-options .content, .completed-section .in-progress-list .task-card .head .more-options .content, .in-progress-section .tasks-list .task-card .head .more-options .content, .in-progress-section .completed-list .task-card .head .more-options .content, .in-progress-section .in-progress-list .task-card .head .more-options .content {
   display: none;
   position: fixed;
   flex-direction: column;
@@ -224,10 +224,10 @@ header .right-header p {
   border: 1px solid rgba(34, 35, 39, 0.6);
   border-radius: 4px;
 }
-.tasks .tasks-list .task-card .head .more-options p, .completed-section .tasks-list .task-card .head .more-options p, .in-progress-section .tasks-list .task-card .head .more-options p {
+.tasks .tasks-list .task-card .head .more-options p, .tasks .completed-list .task-card .head .more-options p, .tasks .in-progress-list .task-card .head .more-options p, .completed-section .tasks-list .task-card .head .more-options p, .completed-section .completed-list .task-card .head .more-options p, .completed-section .in-progress-list .task-card .head .more-options p, .in-progress-section .tasks-list .task-card .head .more-options p, .in-progress-section .completed-list .task-card .head .more-options p, .in-progress-section .in-progress-list .task-card .head .more-options p {
   color: #fff;
 }
-.tasks .tasks-list .task-card .head .more-options .option, .completed-section .tasks-list .task-card .head .more-options .option, .in-progress-section .tasks-list .task-card .head .more-options .option {
+.tasks .tasks-list .task-card .head .more-options .option, .tasks .completed-list .task-card .head .more-options .option, .tasks .in-progress-list .task-card .head .more-options .option, .completed-section .tasks-list .task-card .head .more-options .option, .completed-section .completed-list .task-card .head .more-options .option, .completed-section .in-progress-list .task-card .head .more-options .option, .in-progress-section .tasks-list .task-card .head .more-options .option, .in-progress-section .completed-list .task-card .head .more-options .option, .in-progress-section .in-progress-list .task-card .head .more-options .option {
   cursor: pointer;
   padding: 0.3em 0.4em;
   display: flex;
@@ -236,10 +236,10 @@ header .right-header p {
   border: 1px solid rgba(34, 35, 39, 0.6);
   max-width: 100%;
 }
-.tasks .tasks-list .task-card .head .more-options .completed img, .completed-section .tasks-list .task-card .head .more-options .completed img, .in-progress-section .tasks-list .task-card .head .more-options .completed img {
+.tasks .tasks-list .task-card .head .more-options .completed img, .tasks .completed-list .task-card .head .more-options .completed img, .tasks .in-progress-list .task-card .head .more-options .completed img, .completed-section .tasks-list .task-card .head .more-options .completed img, .completed-section .completed-list .task-card .head .more-options .completed img, .completed-section .in-progress-list .task-card .head .more-options .completed img, .in-progress-section .tasks-list .task-card .head .more-options .completed img, .in-progress-section .completed-list .task-card .head .more-options .completed img, .in-progress-section .in-progress-list .task-card .head .more-options .completed img {
   width: 19px;
 }
-.tasks .tasks-list .date, .completed-section .tasks-list .date, .in-progress-section .tasks-list .date {
+.tasks .tasks-list .date, .tasks .completed-list .date, .tasks .in-progress-list .date, .completed-section .tasks-list .date, .completed-section .completed-list .date, .completed-section .in-progress-list .date, .in-progress-section .tasks-list .date, .in-progress-section .completed-list .date, .in-progress-section .in-progress-list .date {
   display: flex;
   align-items: center;
   justify-content: center;
