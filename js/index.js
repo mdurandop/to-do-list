@@ -32,6 +32,7 @@ document.querySelector('.js-discard-task').addEventListener('click', hideModal);
 
 const taskList = JSON.parse(localStorage.getItem('taskList')) || [];
 const taskListInProgress = JSON.parse(localStorage.getItem('taskListInProgress')) || [];
+const taskListCompleted = JSON.parse(localStorage.getItem('taskListCompleted')) || [];
 
 const createTaskCard = (task) => {
     const taskCard = document.createElement('div');
@@ -71,6 +72,7 @@ const createTaskCard = (task) => {
 const updateTasks = () => {
     tasksContainer.innerHTML = '';
     inProgressTasksContainer.innerHTML = '';
+    completedTasksContainer.innerHTML = '';
 
     taskList.forEach(task => {
         const newTaskCard = createTaskCard(task);
@@ -82,11 +84,19 @@ const updateTasks = () => {
         inProgressTasksContainer.appendChild(newTaskCard);
     })
 
+    taskListCompleted.forEach(task => {
+        const newTaskCard = createTaskCard(task);
+        completedTasksContainer.appendChild(newTaskCard);
+    });
+
     const counter = document.querySelector('.js-todo-counter')
     counter.innerText = `To do (${taskList.length})`
 
     const inProgressCounter = document.querySelector('.in-progress-counter')
     inProgressCounter.innerText = `In progress (${taskListInProgress.length})`
+
+    const completedCounter = document.querySelector('.completed-counter');
+    completedCounter.innerText = `Completed (${taskListCompleted.length})`;
 };
 
 const addTask = (taskName, taskDescription) => {
@@ -111,6 +121,17 @@ saveTaskButton.addEventListener('click', () => {
 tasksContainer.addEventListener('click', (event) => {
     const taskCard = event.target.closest('.task-card');
     const moreOptionsElement = taskCard.querySelector('.content');
+
+    if (event.target.classList.contains('completed')) {
+        const taskIndex = Array.from(tasksContainer.children).indexOf(taskCard);
+
+        taskListCompleted.push(taskList[taskIndex])
+        localStorage.setItem('taskListCompleted', JSON.stringify(taskListCompleted))
+
+        taskList.splice(taskIndex, 1);
+        localStorage.setItem('taskList', JSON.stringify(taskList))
+        updateTasks()
+    }
 
     if (event.target.classList.contains('progress')) {
         const taskIndex = Array.from(tasksContainer.children).indexOf(taskCard);
@@ -141,11 +162,85 @@ inProgressTasksContainer.addEventListener('click', (event) => {
     const taskCard = event.target.closest('.task-card');
     const moreOptionsElement = taskCard.querySelector('.content');
 
+    moreOptionsElement.querySelector('div .progress').innerHTML = 
+    `
+        <img src="icons/to-do.svg" alt="In progress">
+        <p class="todo">To do</p>
+    `;
+    
+    if (event.target.classList.contains('progress') || (event.target.classList.contains('todo'))) {
+        const taskIndex = Array.from(inProgressTasksContainer.children).indexOf(taskCard);
+
+        taskList.push(taskListInProgress[taskIndex])
+        localStorage.setItem('taskList', JSON.stringify(taskList))
+
+        taskListInProgress.splice(taskIndex, 1);
+        localStorage.setItem('taskListInProgress', JSON.stringify(taskListInProgress))
+        updateTasks()
+    }
+
+    if (event.target.classList.contains('completed')) {
+        const taskIndex = Array.from(inProgressTasksContainer.children).indexOf(taskCard);
+
+        taskListCompleted.push(taskListInProgress[taskIndex])
+        localStorage.setItem('taskListCompleted', JSON.stringify(taskListCompleted))
+
+        taskListInProgress.splice(taskIndex, 1);
+        localStorage.setItem('taskListInProgress', JSON.stringify(taskListInProgress))
+        updateTasks()
+    }
+
     if (event.target.classList.contains('delete')) {
         taskCard.remove();
         const taskIndex = Array.from(inProgressTasksContainer.children).indexOf(taskCard);
         taskListInProgress.splice(taskIndex, 1);
         localStorage.setItem('taskListInProgress', JSON.stringify(taskListInProgress));
+        updateTasks()
+    }
+    
+    if (event.target.closest('.more-options img')) {
+        moreOptionsElement.style.display = 
+        moreOptionsElement.style.display === 'flex' ? 'none' : 'flex';
+    }
+});
+
+completedTasksContainer.addEventListener('click', (event) => {
+    const taskCard = event.target.closest('.task-card');
+    const moreOptionsElement = taskCard.querySelector('.content');
+
+    moreOptionsElement.querySelector('div .completed').innerHTML = 
+    `
+        <img src="icons/to-do.svg" alt="In progress">
+        <p class="todo">To do</p>
+    `
+
+    if (event.target.classList.contains('completed') || (event.target.classList.contains('todo'))) {
+        const taskIndex = Array.from(completedTasksContainer.children).indexOf(taskCard);
+
+        taskList.push(taskListCompleted[taskIndex])
+        localStorage.setItem('taskList', JSON.stringify(taskList))
+
+        taskListCompleted.splice(taskIndex, 1);
+        localStorage.setItem('taskListCompleted', JSON.stringify(taskListCompleted))
+        updateTasks()
+    }
+
+    if (event.target.classList.contains('progress')) {
+        const taskIndex = Array.from(completedTasksContainer.children).indexOf(taskCard);
+
+        taskListInProgress.push(taskListCompleted[taskIndex])
+        localStorage.setItem('taskListInProgress', JSON.stringify(taskListInProgress))
+
+        taskListCompleted.splice(taskIndex, 1);
+        localStorage.setItem('taskListCompleted', JSON.stringify(taskListCompleted))
+        updateTasks()
+    }
+
+    if (event.target.classList.contains('delete')) {
+        taskCard.remove();
+        const taskIndex = Array.from(completedTasksContainer.children).indexOf(taskCard);
+        taskListCompleted.splice(taskIndex, 1);
+        localStorage.setItem('taskListCompleted', JSON.stringify(taskListCompleted));
         updateTasks()
     }
     
