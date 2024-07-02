@@ -1,17 +1,16 @@
 @use './colors' as *;
 
-.tasks {
+.tasks, .completed-section, .in-progress-section {
     width: 95%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: 0 auto;
     background-color: $list-task-color;
     border-radius: 10px;
     gap: 1em;
     padding: 1em 0;
-    .type-task {
+    .head-section {
         width: 90%;
         display: flex;
         justify-content: space-between;
@@ -19,6 +18,10 @@
         margin: 0 1em;
         margin-top: 1em;
         border-radius: 10px;
+        img {
+            width: 20px;
+            max-width: 100%;
+        }
         .add-task {
             cursor: pointer;
             display: flex;
@@ -69,15 +72,17 @@
                     transition: 0.5s all ;
                     
                     img {
+                        z-index: 2;
                         width: 20px;
                         cursor: pointer;
                         max-width: 100%;
                     }
                     .content {
                         display: none;
+                        position: fixed;
                         flex-direction: column;
-                        right: 0;
                         width: 160px;
+                        margin-top: 1.2em;
                         height: fit-content;
                         z-index: 1;
                         background-color: $background-color;
@@ -117,4 +122,8 @@
         }
         
     }
+}
+
+.completed-section, .in-progress-section {
+    margin-top: 1em;
 }

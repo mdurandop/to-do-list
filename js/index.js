@@ -1,4 +1,3 @@
-// Header & aside bar DOM elements
 const asideNavbarElement = document.querySelector('aside');
 const openMenuButton = document.querySelector('header .js-open-menu');
 const closeMenuButton = document.querySelector('.js-menu');
@@ -26,11 +25,6 @@ closeMenuButton.addEventListener('click', hideAsideNavbar);
 addTaskButtons.forEach(button => {
     button.addEventListener('click', showModal);
 });
-
-const updateCounter = (taskList) => {
-    const counter = document.querySelector('.js-todo-counter')
-    counter.innerText = `To do (${taskList.length})`
-}
 
 document.querySelector('.js-discard-task').addEventListener('click', hideModal);
 
@@ -76,8 +70,9 @@ const updateTasks = () => {
     taskList.forEach(task => {
         const newTaskCard = createTaskCard(task);
         tasksContainer.appendChild(newTaskCard);
-        updateCounter(taskList)
     });
+    const counter = document.querySelector('.js-todo-counter')
+    counter.innerText = `To do (${taskList.length})`
 };
 
 const addTask = (taskName, taskDescription) => {
@@ -90,7 +85,6 @@ const addTask = (taskName, taskDescription) => {
     localStorage.setItem('taskList', JSON.stringify(taskList));
 
     updateTasks();
-    updateCounter(taskList)
 };
 
 saveTaskButton.addEventListener('click', () => {
@@ -109,7 +103,7 @@ tasksContainer.addEventListener('click', (event) => {
         const taskIndex = Array.from(tasksContainer.children).indexOf(taskCard);
         taskList.splice(taskIndex, 1);
         localStorage.setItem('taskList', JSON.stringify(taskList));
-        updateCounter(taskList)
+        updateTasks()
     }
 
     if (event.target.closest('.more-options img')) {
@@ -118,5 +112,9 @@ tasksContainer.addEventListener('click', (event) => {
     }
 });
 
+const inProgressTasksContainer = document.querySelector('.in-progress-section');
+const completedTasksContainer = document.querySelector('.completed-section');
+
+
+
 updateTasks();
-updateCounter(taskList);

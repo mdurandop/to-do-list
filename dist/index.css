@@ -132,11 +132,10 @@ header .right-header p {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.tasks {
+.tasks, .completed-section, .in-progress-section {
   width: 95%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
   background-color: #24262c;
@@ -144,7 +143,7 @@ header .right-header p {
   gap: 1em;
   padding: 1em 0;
 }
-.tasks .type-task {
+.tasks .head-section, .completed-section .head-section, .in-progress-section .head-section {
   width: 90%;
   display: flex;
   justify-content: space-between;
@@ -153,17 +152,21 @@ header .right-header p {
   margin-top: 1em;
   border-radius: 10px;
 }
-.tasks .type-task .add-task {
+.tasks .head-section img, .completed-section .head-section img, .in-progress-section .head-section img {
+  width: 20px;
+  max-width: 100%;
+}
+.tasks .head-section .add-task, .completed-section .head-section .add-task, .in-progress-section .head-section .add-task {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5em;
 }
-.tasks .type-task .add-task img {
+.tasks .head-section .add-task img, .completed-section .head-section .add-task img, .in-progress-section .head-section .add-task img {
   max-width: 100%;
 }
-.tasks .tasks-list {
+.tasks .tasks-list, .completed-section .tasks-list, .in-progress-section .tasks-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,7 +175,7 @@ header .right-header p {
   width: 100%;
   z-index: 0;
 }
-.tasks .tasks-list .task-card {
+.tasks .tasks-list .task-card, .completed-section .tasks-list .task-card, .in-progress-section .tasks-list .task-card {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -182,19 +185,19 @@ header .right-header p {
   gap: 2em;
   transition: 0.5s all;
 }
-.tasks .tasks-list .task-card .head {
+.tasks .tasks-list .task-card .head, .completed-section .tasks-list .task-card .head, .in-progress-section .tasks-list .task-card .head {
   display: flex;
   justify-content: space-between;
   margin: 0 1em;
 }
-.tasks .tasks-list .task-card .head .task-name-description .heading {
+.tasks .tasks-list .task-card .head .task-name-description .heading, .completed-section .tasks-list .task-card .head .task-name-description .heading, .in-progress-section .tasks-list .task-card .head .task-name-description .heading {
   font-size: 1.1rem;
   margin: 0.4em 0;
 }
-.tasks .tasks-list .task-card .head .task-name-description .description {
+.tasks .tasks-list .task-card .head .task-name-description .description, .completed-section .tasks-list .task-card .head .task-name-description .description, .in-progress-section .tasks-list .task-card .head .task-name-description .description {
   color: rgba(255, 255, 255, 0.5);
 }
-.tasks .tasks-list .task-card .head .more-options {
+.tasks .tasks-list .task-card .head .more-options, .completed-section .tasks-list .task-card .head .more-options, .in-progress-section .tasks-list .task-card .head .more-options {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -202,16 +205,18 @@ header .right-header p {
   width: 30%;
   transition: 0.5s all;
 }
-.tasks .tasks-list .task-card .head .more-options img {
+.tasks .tasks-list .task-card .head .more-options img, .completed-section .tasks-list .task-card .head .more-options img, .in-progress-section .tasks-list .task-card .head .more-options img {
+  z-index: 2;
   width: 20px;
   cursor: pointer;
   max-width: 100%;
 }
-.tasks .tasks-list .task-card .head .more-options .content {
+.tasks .tasks-list .task-card .head .more-options .content, .completed-section .tasks-list .task-card .head .more-options .content, .in-progress-section .tasks-list .task-card .head .more-options .content {
   display: none;
+  position: fixed;
   flex-direction: column;
-  right: 0;
   width: 160px;
+  margin-top: 1.2em;
   height: -moz-fit-content;
   height: fit-content;
   z-index: 1;
@@ -219,10 +224,10 @@ header .right-header p {
   border: 1px solid rgba(34, 35, 39, 0.6);
   border-radius: 4px;
 }
-.tasks .tasks-list .task-card .head .more-options p {
+.tasks .tasks-list .task-card .head .more-options p, .completed-section .tasks-list .task-card .head .more-options p, .in-progress-section .tasks-list .task-card .head .more-options p {
   color: #fff;
 }
-.tasks .tasks-list .task-card .head .more-options .option {
+.tasks .tasks-list .task-card .head .more-options .option, .completed-section .tasks-list .task-card .head .more-options .option, .in-progress-section .tasks-list .task-card .head .more-options .option {
   cursor: pointer;
   padding: 0.3em 0.4em;
   display: flex;
@@ -231,10 +236,10 @@ header .right-header p {
   border: 1px solid rgba(34, 35, 39, 0.6);
   max-width: 100%;
 }
-.tasks .tasks-list .task-card .head .more-options .completed img {
+.tasks .tasks-list .task-card .head .more-options .completed img, .completed-section .tasks-list .task-card .head .more-options .completed img, .in-progress-section .tasks-list .task-card .head .more-options .completed img {
   width: 19px;
 }
-.tasks .tasks-list .date {
+.tasks .tasks-list .date, .completed-section .tasks-list .date, .in-progress-section .tasks-list .date {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,6 +248,10 @@ header .right-header p {
   border-radius: 9999px;
   background-color: #36373d;
   margin: 0 1em;
+}
+
+.completed-section, .in-progress-section {
+  margin-top: 1em;
 }
 
 .task-modal {
