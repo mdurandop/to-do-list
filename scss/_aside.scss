@@ -1,4 +1,5 @@
 @use './colors' as *;
+@use './breakpoint' as *;
 
 aside {
     display: none; 
@@ -11,6 +12,11 @@ aside {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 
+    @media only screen and (min-width: 768px) {
+        display: flex;
+        background-color: transparent;
+        width: 20%;
+    }
     .nav-bar {
         display: flex;
         top: 0;
@@ -21,6 +27,9 @@ aside {
         width: 85%;
         gap: 1.2em;
         transition: all 0.6 ease-in-out;
+        @media only screen and (min-width: 768px) {
+            width: 100%;
+        }
         
         header {
             display: flex;
@@ -30,6 +39,14 @@ aside {
             max-width: 85%;
             img {
                 cursor: pointer;
+                @media only screen and (min-width: 768px) {
+                    display: none;
+                }
+                &:last-child {
+                    @media only screen and (min-width: 768px) {
+                        display: block;
+                    }
+                }
             }
             .menu-heading {
                 display: flex;
@@ -85,3 +102,5 @@ aside {
     }
 }
 
+
+  

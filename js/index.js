@@ -1,4 +1,3 @@
-// Element selectors
 const asideNavbarElement = document.querySelector('aside');
 const openMenuButton = document.querySelector('header .js-open-menu');
 const closeMenuButton = document.querySelector('.js-menu');
@@ -10,11 +9,9 @@ const tasksContainer = document.querySelector('.tasks-list');
 const inProgressTasksContainer = document.querySelector('.in-progress-list');
 const completedTasksContainer = document.querySelector('.completed-list');
 
-// Set current date
 const now = dayjs().format('D MMM YYYY');
 nowElement.innerText = now;
 
-// Utility functions
 const toggleDisplay = (element, display) => {
     element.style.display = display;
 };

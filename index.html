@@ -2,52 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>To Do List</title>
     <link rel="stylesheet" href="dist/index.css">
     <link rel="shortcut icon" href="icons/logo.svg" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <!--Barra lateral de navegación-->
-        <aside>
-            <div class="nav-bar">
-                <header>
-                    <div class="menu-heading">
-                        <img src="icons/menu.svg" alt="Hamburguer menu" class="js-menu">
-                        <p class="heading">To Do List</p>
-                    </div>
-                    <img src="icons/add.svg" alt="Add button" class="add-task">
-                </header>
-                <article class="tasks-section">
-                    <div class="task-header">
-                        <p>Tasks</p>  
-                        <img src="icons/arrow active.svg" class="active-arrow">
-                    </div>
-                    <div class="list-tasks">
-                        <div class="line-y"></div>
-                        <div class="list">
-                            <div class="task-type">
-                                <div class="line-x"></div>
-                                <p class="all-tasks-counter">All tasks</p>
-                            </div>
-                            <div class="task-type">
-                                <div class="line-x"></div>
-                                <p>To do <span class="js-todo-counter-aside"></span></p>
-                            </div>
-                            <div class="task-type">
-                                <div class="line-x"></div>
-                                <p >In progress <span class="in-progress-counter-aside"></span></p>
-                            </div>
-                            <div class="task-type">
-                                <div class="line-x"></div> 
-                                <p>Done <span class="completed-counter-aside"></span></p>
-                            </div>
+    <!--Barra lateral de navegación-->
+    <aside>
+        <div class="nav-bar">
+            <header>
+                <div class="menu-heading">
+                    <img src="icons/menu.svg" alt="Hamburguer menu" class="js-menu">
+                    <p class="heading">To Do List</p>
+                </div>
+                <img src="icons/add.svg" alt="Add button" class="add-task">
+            </header>
+            <article class="tasks-section">
+                <div class="task-header">
+                    <p>Tasks</p>  
+                    <img src="icons/arrow active.svg" class="active-arrow">
+                </div>
+                <div class="list-tasks">
+                    <div class="line-y"></div>
+                    <div class="list">
+                        <div class="task-type">
+                            <div class="line-x"></div>
+                            <p class="all-tasks-counter">All tasks</p>
+                        </div>
+                        <div class="task-type">
+                            <div class="line-x"></div>
+                            <p>To do <span class="js-todo-counter-aside"></span></p>
+                        </div>
+                        <div class="task-type">
+                            <div class="line-x"></div>
+                            <p >In progress <span class="in-progress-counter-aside"></span></p>
+                        </div>
+                        <div class="task-type">
+                            <div class="line-x"></div> 
+                            <p>Done <span class="completed-counter-aside"></span></p>
                         </div>
                     </div>
-                </article>
-            </div>
-        </aside>
+                </div>
+            </article>
+        </div>
+    </aside>
+
+    <div class="container">
+        <!--Header principal-->
+
         <header>
             <div class="js-open-menu">
                 <img src="icons/menu.svg" alt="">
@@ -58,6 +61,9 @@
                 <p class="js-now">18 May 2022</p>
             </div>
         </header>
+
+        <!--Modal para agregar tareas-->
+
         <section class="task-modal">
             <div class="modal-content">
                 <h1>Add new task</h1>
@@ -69,35 +75,48 @@
                 </div>
             </div>
         </section>
-        <section class="tasks"> 
-            <div class="head-section">
-                <p>To do <span class="js-todo-counter"></span></p>
-                <div class="add-task">
-                    <img src="icons/add.svg" alt="add new task">
-                    <p>Add new task</p>
+
+        <!--Visualizacion de las tareas agregadas-->
+
+        <section class="all-tasks-container">
+            <!--Tareas generales-->
+
+            <section class="tasks"> 
+                <div class="head-section">
+                    <p>To do <span class="js-todo-counter"></span></p>
+                    <div class="add-task">
+                        <img src="icons/add.svg" alt="add new task">
+                        <p>Add new task</p>
+                    </div>
                 </div>
-            </div>
-            <div class="tasks-list" data-key="taskList">
+                <div class="tasks-list" data-key="taskList">
 
-            </div>
-        </section>
-        <section class="in-progress-section">
-            <div class="head-section">
-                <p>In progress <span  class="in-progress-counter"></span></p>
-                <img src="icons/hide.svg" alt="">
-            </div>
-            <div class="in-progress-list" data-key="taskListInProgress">
+                </div>
+            </section>
 
-            </div>
-        </section>
-        <section class="completed-section">
-            <div class="head-section">
-                <p>Completed <span class="completed-counter"></span></p>
-                <img src="icons/hide.svg" alt="">
-            </div>
-            <div class="completed-list" data-key="taskListCompleted">
+            <!--Tareas en progreso-->
 
-            </div>
+            <section class="in-progress-section">
+                <div class="head-section">
+                    <p>In progress <span  class="in-progress-counter"></span></p>
+                    <img src="icons/hide.svg" alt="">
+                </div>
+                <div class="in-progress-list" data-key="taskListInProgress">
+
+                </div>
+            </section>
+
+            <!--Tareas completadas-->
+
+            <section class="completed-section">
+                <div class="head-section">
+                    <p>Done <span class="completed-counter"></span></p>
+                    <img src="icons/hide.svg" alt="">
+                </div>
+                <div class="completed-list" data-key="taskListCompleted">
+
+                </div>
+            </section>
         </section>
     </div>
     <script type="module" src="js/index.js"></script>
