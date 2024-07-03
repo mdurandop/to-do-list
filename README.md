@@ -21,7 +21,7 @@ This project is a task management application designed to help users efficiently
 
 ## Screenshots
 
-![App Screenshot](icons/screenshot.png)
+![App Screenshot](icons/image.png)
 
 
 ## Authors
